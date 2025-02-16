@@ -3,7 +3,8 @@ import Tauler from "./classes/Tauler.js";   // Importa la classe Tauler
 
 // Variables globals
 let meuComecocos;
-let meuTauler;                             // Instància del Tauler
+let meuTauler;
+let imgPared;// Instància del Tauler
 
 // Coordenades de la mida del canvas
 let xCanvas = 600;
@@ -12,6 +13,11 @@ let yCanvas = 600;
 // Variable amb la velocitat de moviment
 let velocitat = 15;
 
+function preload() {
+  // Carregar la imatge de la paret
+  imgPared = loadImage("../img/roca.png"); // Substitueix per la ruta correcta de la teva imatge
+}
+
 function setup() {
   createCanvas(xCanvas, yCanvas);
   angleMode(DEGREES);
@@ -19,13 +25,20 @@ function setup() {
   // Crear instàncies de Comecocos i Tauler
   meuComecocos = new Comecocos(100, 240, 40, "Yellow");
   meuTauler = new Tauler();
+
 }
 
 function draw() {
-  background(220);
+  background(200);
 
   // Dibuixa el tauler
-  meuTauler.drawTauler();
+  for (let i = 0; i < meuTauler.mapa.length; i++) {
+    for (let j = 0; j < meuTauler.mapa[i].length; j++) {
+      if (meuTauler.mapa[i][j] === 1) {
+        image(imgPared, j * 30, i * 30, 30, 30); // Dibuixa la imatge de la paret
+      }
+    }
+  }
 
   // Dibuixa el Comecocos
   meuComecocos.drawComecocos();
@@ -76,4 +89,6 @@ function keyPressed() {
 globalThis.setup = setup;
 globalThis.draw = draw;
 globalThis.keyPressed = keyPressed;
+globalThis.preload = preload;
+
 
