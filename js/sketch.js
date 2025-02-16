@@ -23,7 +23,7 @@ function setup() {
   angleMode(DEGREES);
 
   // Crear instàncies de Comecocos i Tauler
-  meuComecocos = new Comecocos(100, 240, 40, "Yellow");
+  meuComecocos = new Comecocos(30, 300, 30, "Yellow");
   meuTauler = new Tauler();
 
 }
@@ -46,19 +46,32 @@ function draw() {
 
 // Funció per detectar tecles i moure el Comecocos
 function keyPressed() {
+  // Definir les noves coordenades de destí
+  let novaX = meuComecocos.x;
+  let novaY = meuComecocos.y;
+
   // Moviments i angles segons la direcció
   if (keyCode === UP_ARROW) {
-    meuComecocos.updatePosition(meuComecocos.x, meuComecocos.y - velocitat);
+    novaY -= velocitat;
     meuComecocos.updateAngle('UP');
   } else if (keyCode === DOWN_ARROW) {
-    meuComecocos.updatePosition(meuComecocos.x, meuComecocos.y + velocitat);
+    novaY += velocitat;
     meuComecocos.updateAngle('DOWN');
   } else if (keyCode === LEFT_ARROW) {
-    meuComecocos.updatePosition(meuComecocos.x - velocitat, meuComecocos.y);
+    novaX -= velocitat;
     meuComecocos.updateAngle('LEFT');
   } else if (keyCode === RIGHT_ARROW) {
-    meuComecocos.updatePosition(meuComecocos.x + velocitat, meuComecocos.y);
+    novaX += velocitat;
     meuComecocos.updateAngle('RIGHT');
+  }
+
+  // Comprovar si la nova posició és una roca (1)
+  let fila = Math.floor(novaY / 30); // Convertir la posició Y a coordenades de matriu
+  let columna = Math.floor(novaX / 30); // Convertir la posició X a coordenades de matriu
+
+  if (meuTauler.mapa[fila] && meuTauler.mapa[fila][columna] !== 1) {
+    // Si no és una roca, mou el Comecocos
+    meuComecocos.updatePosition(novaX, novaY);
   }
 
   // Assegurar que el Comecocos no surti del canvas.
@@ -84,6 +97,7 @@ function keyPressed() {
     meuComecocos.updatePosition(xCanvas, meuComecocos.y);
   }
 }
+
 
 // Declarem les funcions globalment per a p5.js
 globalThis.setup = setup;
