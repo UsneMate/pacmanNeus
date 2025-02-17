@@ -20,7 +20,7 @@ export default class Cirera {
   }
 
   // Mètode per comprovar si el comecocos ha menjat el menjar
-  checkCollision(comeCocosX, comeCocosY, radi) {
+  checkCollisionCirera(comeCocosX, comeCocosY, radi) {
     if (
       !this.#menjat &&
       dist(this.#x, this.#y, comeCocosX, comeCocosY) < radi

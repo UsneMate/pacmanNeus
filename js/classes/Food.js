@@ -21,7 +21,7 @@ export default class Food {
   }
 
   // Mètode per comprovar si el comecocos ha menjat el menjar
-  checkCollision(comeCocosX, comeCocosY, radi) {
+  checkCollisionFood(comeCocosX, comeCocosY, radi) {
     if (
       !this.#menjat &&
       dist(this.#x, this.#y, comeCocosX, comeCocosY) < radi

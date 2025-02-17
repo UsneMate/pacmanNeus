@@ -69,12 +69,12 @@ function draw() {
   // Dibuixa el menjar i comprova si el Comecocos el menja
   foodItems.forEach((food) => {
     food.drawFood(imgMenjar);
-    puntuacio += food.checkCollision(meuComecocos.x, meuComecocos.y, meuComecocos.radi);
+    puntuacio += food.checkCollisionFood(meuComecocos.x, meuComecocos.y, meuComecocos.radi);
   });
 
   cireres.forEach((cirera) => {
     cirera.drawFoodCirera(imgCirera);
-    puntuacio += cirera.checkCollision(meuComecocos.x, meuComecocos.y,meuComecocos.radi);
+    puntuacio += cirera.checkCollisionCirera(meuComecocos.x, meuComecocos.y,meuComecocos.radi);
   });
 
   // Mostrar puntuació
