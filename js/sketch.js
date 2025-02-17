@@ -45,7 +45,7 @@ function setup() {
 }
 
 function draw() {
-  background(200);
+  background(190);
 
   // Dibuixa el tauler
   for (let i = 0; i < meuTauler.mapa.length; i++) {
