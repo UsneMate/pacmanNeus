@@ -43,10 +43,9 @@ function setup() {
       if (meuTauler.mapa[i][j] === 2) {
         foodItems.push(new Food(j * 30, i * 30, 10)); // 10 punts per cada menjar
       }
-      if (meuTauler.mapa[i][j] === 3) { // 3 per les cireres al tauler
-        let x = j * 30; // Posició X ajustada al centre de la cel·la
-        let y = i * 30; // Posició Y ajustada al centre de la cel·la
-        cireres.push(new Cirera(x, y, imgCirera)); // Crear nova instància de Cirera
+
+      if (meuTauler.mapa[i][j] === 3) {
+        cireres.push(new Cirera(j * 30, i * 30, 50));
       }
     }
   }
@@ -64,8 +63,6 @@ function draw() {
     }
   }
 
-
-
   // Dibuixa el Comecocos
   meuComecocos.drawComecocos();
 
@@ -75,17 +72,10 @@ function draw() {
     puntuacio += food.checkCollision(meuComecocos.x, meuComecocos.y, meuComecocos.radi);
   });
 
-  // Dibuixa les cireres
-  for (let i = cireres.length - 1; i >= 0; i--) {
-    cireres[i].drawCirera(); // cridem el mètode de Cirera
-
-    // Comprova si Comecocos menja una cirera
-    if (dist(meuComecocos.x, meuComecocos.y, cireres[i].x, cireres[i].y) < meuComecocos.radi / 2) {
-      puntuacio += cireres[i].getPunts(); // Suma 50 punts
-      cireres.splice(i, 1); // Elimina la cirera menjada
-    }
-  }
-
+  cireres.forEach((cirera) => {
+    cirera.drawFoodCirera(imgCirera);
+    puntuacio += cirera.checkCollision(meuComecocos.x, meuComecocos.y,meuComecocos.radi);
+  });
 
   // Mostrar puntuació
   fill(0);

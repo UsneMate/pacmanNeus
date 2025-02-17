@@ -1,14 +1,38 @@
-// Cirera.js
-import Food from "./Food.js";
+export default class Cirera {
+  // Atributs privats amb #
+  #x;
+  #y;
+  #punts;
+  #menjat;
 
-export default class Cirera extends Food {  // Hereta de Food
-  constructor(x, y, img) {
-    super(x, y, 50); // La cirera tindrà 50 punts
-    this.img = img; // Afegeix la imatge de la cirera
+  constructor(x, y, punts) {
+    this.#x = x;
+    this.#y = y;
+    this.#punts = punts;
+    this.#menjat = false;
   }
 
-  // Mètode per dibuixar la cirera
-  drawCirera() {
-    this.drawFood(this.img); // Utilitza el mètode de Food per dibuixar la imatge
+  // Mètode per dibuixar el menjar si no ha estat menjat
+  drawFoodCirera(imgMenjar) {
+    if (!this.#menjat) {
+      image(imgMenjar, this.#x, this.#y, 30, 30);
+    }
+  }
+
+  // Mètode per comprovar si el comecocos ha menjat el menjar
+  checkCollision(comeCocosX, comeCocosY, radi) {
+    if (
+      !this.#menjat &&
+      dist(this.#x, this.#y, comeCocosX, comeCocosY) < radi
+    ) {
+      this.#menjat = true;
+      return this.#punts;
+    }
+    return 0;
+  }
+
+  // Afegim un setter per poder modificar els punts
+  setPunts(punts) {
+    this.#punts = punts;
   }
 }
