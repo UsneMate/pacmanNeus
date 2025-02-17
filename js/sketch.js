@@ -154,5 +154,3 @@ globalThis.setup = setup;
 globalThis.draw = draw;
 globalThis.keyPressed = keyPressed;
 globalThis.preload = preload;
-
-
