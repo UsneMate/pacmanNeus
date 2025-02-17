@@ -1,15 +1,19 @@
 import Comecocos from "./classes/Comecocos.js";
 import Tauler from "./classes/Tauler.js";
 import Food from "./classes/Food.js";
+import Cirera from "./classes/Cirera.js";
 
 // Variables globals
 let meuComecocos;
 let meuTauler;
-let imgPared;// Instància del Tauler
+let imgPared;
 
 let imgMenjar;
 let foodItems = [];
 let puntuacio = 0;
+
+let imgCirera;
+let cireres = [];
 
 
 // Coordenades de la mida del canvas
@@ -20,9 +24,9 @@ let yCanvas = 700;
 let velocitat = 15;
 
 function preload() {
-  // Carregar la imatge de la paret
   imgPared = loadImage("../img/roca.png");
   imgMenjar = loadImage("../img/food.png");
+  imgCirera = loadImage("../img/cerezas.png");
 }
 
 function setup() {
@@ -39,9 +43,13 @@ function setup() {
       if (meuTauler.mapa[i][j] === 2) {
         foodItems.push(new Food(j * 30, i * 30, 10)); // 10 punts per cada menjar
       }
+      if (meuTauler.mapa[i][j] === 3) { // 3 per les cireres al tauler
+        let x = j * 30; // Posició X ajustada al centre de la cel·la
+        let y = i * 30; // Posició Y ajustada al centre de la cel·la
+        cireres.push(new Cirera(x, y, imgCirera)); // Crear nova instància de Cirera
+      }
     }
   }
-
 }
 
 function draw() {
@@ -56,6 +64,8 @@ function draw() {
     }
   }
 
+
+
   // Dibuixa el Comecocos
   meuComecocos.drawComecocos();
 
@@ -64,6 +74,18 @@ function draw() {
     food.drawFood(imgMenjar);
     puntuacio += food.checkCollision(meuComecocos.x, meuComecocos.y, meuComecocos.radi);
   });
+
+  // Dibuixa les cireres
+  for (let i = cireres.length - 1; i >= 0; i--) {
+    cireres[i].drawCirera(); // cridem el mètode de Cirera
+
+    // Comprova si Comecocos menja una cirera
+    if (dist(meuComecocos.x, meuComecocos.y, cireres[i].x, cireres[i].y) < meuComecocos.radi / 2) {
+      puntuacio += cireres[i].getPunts(); // Suma 50 punts
+      cireres.splice(i, 1); // Elimina la cirera menjada
+    }
+  }
+
 
   // Mostrar puntuació
   fill(0);

@@ -1,3 +1,4 @@
+// Food.js
 export default class Food {
   // Atributs privats amb #
   #x;
@@ -29,5 +30,10 @@ export default class Food {
       return this.#punts;
     }
     return 0;
+  }
+
+  // Afegim un setter per poder modificar els punts
+  setPunts(punts) {
+    this.#punts = punts;
   }
 }
