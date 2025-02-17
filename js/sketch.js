@@ -1,21 +1,28 @@
 import Comecocos from "./classes/Comecocos.js";
-import Tauler from "./classes/Tauler.js";   // Importa la classe Tauler
+import Tauler from "./classes/Tauler.js";
+import Food from "./classes/Food.js";
 
 // Variables globals
 let meuComecocos;
 let meuTauler;
 let imgPared;// Instància del Tauler
 
+let imgMenjar;
+let foodItems = [];
+let puntuacio = 0;
+
+
 // Coordenades de la mida del canvas
 let xCanvas = 600;
-let yCanvas = 600;
+let yCanvas = 700;
 
 // Variable amb la velocitat de moviment
 let velocitat = 15;
 
 function preload() {
   // Carregar la imatge de la paret
-  imgPared = loadImage("../img/roca.png"); // Substitueix per la ruta correcta de la teva imatge
+  imgPared = loadImage("../img/roca.png");
+  imgMenjar = loadImage("../img/food.png");
 }
 
 function setup() {
@@ -25,6 +32,15 @@ function setup() {
   // Crear instàncies de Comecocos i Tauler
   meuComecocos = new Comecocos(30, 300, 30, "Yellow");
   meuTauler = new Tauler();
+
+  // Repartir el menjar al tauler
+  for (let i = 0; i < meuTauler.mapa.length; i++) {
+    for (let j = 0; j < meuTauler.mapa[i].length; j++) {
+      if (meuTauler.mapa[i][j] === 2) {
+        foodItems.push(new Food(j * 30, i * 30, 10)); // 10 punts per cada menjar
+      }
+    }
+  }
 
 }
 
@@ -42,6 +58,18 @@ function draw() {
 
   // Dibuixa el Comecocos
   meuComecocos.drawComecocos();
+
+  // Dibuixa el menjar i comprova si el Comecocos el menja
+  foodItems.forEach((food) => {
+    food.drawFood(imgMenjar);
+    puntuacio += food.checkCollision(meuComecocos.x, meuComecocos.y, meuComecocos.radi);
+  });
+
+  // Mostrar puntuació
+  fill(0);
+  textSize(20);
+  textAlign(CENTER);
+  text("Puntuació: " + puntuacio, xCanvas / 2 -(30), yCanvas -50);
 }
 
 // Funció per detectar tecles i moure el Comecocos
@@ -65,7 +93,7 @@ function keyPressed() {
     meuComecocos.updateAngle('RIGHT');
   }
 
-  // Comprovar si la nova posició és una roca (1)
+  // Comprovar si la nova posició és una roca
   let fila = Math.floor(novaY / 30); // Convertir la posició Y a coordenades de matriu
   let columna = Math.floor(novaX / 30); // Convertir la posició X a coordenades de matriu
 
