@@ -36,3 +36,18 @@ export default class Comecocos {
     this.y = y;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

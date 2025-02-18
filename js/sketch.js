@@ -14,6 +14,8 @@ let puntuacio = 0;
 
 let imgCirera;
 let cireres = [];
+//com faig un bucle
+
 
 
 // Coordenades de la mida del canvas
