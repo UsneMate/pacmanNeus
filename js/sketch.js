@@ -42,9 +42,10 @@ function setup() {
   //meuTauler = new Tauler();
 
   joc = new Joc();
+  joc.repartirMenjar();
 
   // Repartir el menjar al tauler
-  for (let i = 0; i < joc.meuTauler.mapa.length; i++) {
+  /*for (let i = 0; i < joc.meuTauler.mapa.length; i++) {
     for (let j = 0; j < joc.meuTauler.mapa[i].length; j++) {
       if (joc.meuTauler.mapa[i][j] === 2) {
         joc.foodItems.push(new Food(j * 30, i * 30, 10)); // 10 punts per cada menjar
@@ -54,7 +55,7 @@ function setup() {
         joc.cireres.push(new Cirera(j * 30, i * 30, 50));
       }
     }
-  }
+  }*/
 }
 
 function draw() {
