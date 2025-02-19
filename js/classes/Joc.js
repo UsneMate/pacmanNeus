@@ -21,6 +21,9 @@ export default class Joc {
     this.meuTauler = new Tauler();
     this.foodItems = [];
     this.cireres = [];
+    this.imgPared = null;
+    this.imgMenjar = null;
+    this.imgCirera = null;
   }
 
   repartirMenjar(){
@@ -32,6 +35,23 @@ export default class Joc {
 
         if (this.meuTauler.mapa[i][j] === 3) {
           this.cireres.push(new Cirera(j * 30, i * 30, 50));
+        }
+      }
+    }
+  }
+
+  preload(){
+    this.imgPared = loadImage("../img/roca.png");
+    this.imgMenjar = loadImage("../img/food.png");
+    this.imgCirera = loadImage("../img/cerezas.png");
+  }
+
+  dibuixarTauler() {
+    // Dibuixa el tauler
+    for (let i = 0; i < this.meuTauler.mapa.length; i++) {
+      for (let j = 0; j < this.meuTauler.mapa[i].length; j++) {
+        if (this.meuTauler.mapa[i][j] === 1) {
+          image(this.imgPared, j * 30, i * 30, 30, 30); // Dibuixa la imatge de la paret
         }
       }
     }

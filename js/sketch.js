@@ -8,13 +8,13 @@ import Joc from "./classes/Joc.js";
 //let meuComecocos;
 //let meuTauler;
 let joc;
-let imgPared;
+//let imgPared;
 
-let imgMenjar;
+//let imgMenjar;
 //let foodItems = [];
 let puntuacio = 0;
 
-let imgCirera;
+//let imgCirera;
 //let cireres = [];
 //com faig un bucle
 
@@ -28,9 +28,11 @@ let yCanvas = 700;
 let velocitat = 15;
 
 function preload() {
-  imgPared = loadImage("../img/roca.png");
+  /*imgPared = loadImage("../img/roca.png");
   imgMenjar = loadImage("../img/food.png");
-  imgCirera = loadImage("../img/cerezas.png");
+  imgCirera = loadImage("../img/cerezas.png");*/
+  joc = new Joc();
+  joc.preload();
 }
 
 function setup() {
@@ -41,7 +43,7 @@ function setup() {
   //meuComecocos = new Comecocos(30, 300, 30, "Yellow");
   //meuTauler = new Tauler();
 
-  joc = new Joc();
+  //joc = new Joc();
   joc.repartirMenjar();
 
   // Repartir el menjar al tauler
@@ -60,27 +62,28 @@ function setup() {
 
 function draw() {
   background(190);
+  joc.dibuixarTauler();
 
   // Dibuixa el tauler
-  for (let i = 0; i < joc.meuTauler.mapa.length; i++) {
+  /*for (let i = 0; i < joc.meuTauler.mapa.length; i++) {
     for (let j = 0; j < joc.meuTauler.mapa[i].length; j++) {
       if (joc.meuTauler.mapa[i][j] === 1) {
         image(imgPared, j * 30, i * 30, 30, 30); // Dibuixa la imatge de la paret
       }
     }
-  }
+  }*/
 
   // Dibuixa el Comecocos
   joc.meuComecocos.drawComecocos();
 
   // Dibuixa el menjar i comprova si el Comecocos el menja
   joc.foodItems.forEach((food) => {
-    food.drawFood(imgMenjar);
+    food.drawFood(joc.imgMenjar);
     puntuacio += food.checkCollisionFood(joc.meuComecocos.x, joc.meuComecocos.y, joc.meuComecocos.radi);
   });
 
   joc.cireres.forEach((cirera) => {
-    cirera.drawFoodCirera(imgCirera);
+    cirera.drawFoodCirera(joc.imgCirera);
     puntuacio += cirera.checkCollisionCirera(joc.meuComecocos.x, joc.meuComecocos.y, joc.meuComecocos.radi);
   });
 
