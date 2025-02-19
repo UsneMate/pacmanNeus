@@ -20,6 +20,9 @@ export default class Food {
     }
   }
 
+  // dist(x1, y1, x2, y2) {
+  //   return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+  // }
   // Mètode per comprovar si el comecocos ha menjat el menjar
   checkCollisionFood(comeCocosX, comeCocosY, radi) {
     if (
@@ -33,7 +36,7 @@ export default class Food {
   }
 
   // Afegim un setter per poder modificar els punts
-  setPunts(punts) {
+  /*setPunts(punts) {
     this.#punts = punts;
-  }
+  }*/
 }

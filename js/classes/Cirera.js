@@ -19,6 +19,10 @@ export default class Cirera {
     }
   }
 
+  // dist(x1, y1, x2, y2) {
+  //   return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+  // }
+
   // Mètode per comprovar si el comecocos ha menjat el menjar
   checkCollisionCirera(comeCocosX, comeCocosY, radi) {
     if (
