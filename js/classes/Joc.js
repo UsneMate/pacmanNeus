@@ -56,4 +56,8 @@ export default class Joc {
       }
     }
   }
+
+  dibuixarComecocos(){
+    this.meuComecocos.drawComecocos();
+  }
 }

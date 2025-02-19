@@ -74,7 +74,8 @@ function draw() {
   }*/
 
   // Dibuixa el Comecocos
-  joc.meuComecocos.drawComecocos();
+  //joc.meuComecocos.drawComecocos();
+  joc.dibuixarComecocos();
 
   // Dibuixa el menjar i comprova si el Comecocos el menja
   joc.foodItems.forEach((food) => {
