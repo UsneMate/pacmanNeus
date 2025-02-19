@@ -17,6 +17,7 @@ export default class Joc {
   //ara ens interessa també afegir vides
   constructor() {
     this.vides = 3;
+    this.puntuacio = 0;
     this.meuComecocos = new Comecocos(30, 300, 30, "Yellow");
     this.meuTauler = new Tauler();
     this.foodItems = [];
@@ -59,5 +60,17 @@ export default class Joc {
 
   dibuixarComecocos(){
     this.meuComecocos.drawComecocos();
+  }
+
+  dibuixarMenjar(){
+    this.foodItems.forEach((food) => {
+      food.drawFood(this.imgMenjar);
+      this.puntuacio += food.checkCollisionFood(this.meuComecocos.x, this.meuComecocos.y, this.meuComecocos.radi);
+    });
+
+    this.cireres.forEach((cirera) => {
+      cirera.drawFoodCirera(this.imgCirera);
+      this.puntuacio += cirera.checkCollisionCirera(this.meuComecocos.x, this.meuComecocos.y, this.meuComecocos.radi);
+    });
   }
 }

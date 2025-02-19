@@ -1,4 +1,4 @@
-//import Comecocos from "./classes/Comecocos.js";
+import Comecocos from "./classes/Comecocos.js";
 //import Tauler from "./classes/Tauler.js";
 import Food from "./classes/Food.js";
 import Cirera from "./classes/Cirera.js";
@@ -12,7 +12,7 @@ let joc;
 
 //let imgMenjar;
 //let foodItems = [];
-let puntuacio = 0;
+//let puntuacio = 0;
 
 //let imgCirera;
 //let cireres = [];
@@ -78,21 +78,22 @@ function draw() {
   joc.dibuixarComecocos();
 
   // Dibuixa el menjar i comprova si el Comecocos el menja
-  joc.foodItems.forEach((food) => {
-    food.drawFood(joc.imgMenjar);
-    puntuacio += food.checkCollisionFood(joc.meuComecocos.x, joc.meuComecocos.y, joc.meuComecocos.radi);
-  });
-
-  joc.cireres.forEach((cirera) => {
-    cirera.drawFoodCirera(joc.imgCirera);
-    puntuacio += cirera.checkCollisionCirera(joc.meuComecocos.x, joc.meuComecocos.y, joc.meuComecocos.radi);
-  });
+  joc.dibuixarMenjar();
+  // joc.foodItems.forEach((food) => {
+  //   food.drawFood(joc.imgMenjar);
+  //   puntuacio += food.checkCollisionFood(joc.meuComecocos.x, joc.meuComecocos.y, joc.meuComecocos.radi);
+  // });
+  //
+  // joc.cireres.forEach((cirera) => {
+  //   cirera.drawFoodCirera(joc.imgCirera);
+  //   puntuacio += cirera.checkCollisionCirera(joc.meuComecocos.x, joc.meuComecocos.y, joc.meuComecocos.radi);
+  // });
 
   // Mostrar puntuació
   fill(0);
   textSize(20);
   textAlign(CENTER);
-  text("Puntuació: " + puntuacio, xCanvas / 2 -(30), yCanvas -50);
+  text("Puntuació: " + joc.puntuacio, xCanvas / 2 -(30), yCanvas -50);
 }
 
 // Funció per detectar tecles i moure el Comecocos
