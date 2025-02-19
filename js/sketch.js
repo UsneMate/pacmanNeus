@@ -1,7 +1,7 @@
-import Comecocos from "./classes/Comecocos.js";
+//import Comecocos from "./classes/Comecocos.js";
 //import Tauler from "./classes/Tauler.js";
-import Food from "./classes/Food.js";
-import Cirera from "./classes/Cirera.js";
+//import Food from "./classes/Food.js";
+//import Cirera from "./classes/Cirera.js";
 import Joc from "./classes/Joc.js";
 
 // Variables globals
