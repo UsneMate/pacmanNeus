@@ -73,4 +73,10 @@ export default class Joc {
       this.puntuacio += cirera.checkCollisionCirera(this.meuComecocos.x, this.meuComecocos.y, this.meuComecocos.radi);
     });
   }
+
+  //funció que comprova si la casella és una roca
+  esRoca(fila, columna){
+    //return this.meuTauler.mapa[fila] && this.meuTauler.mapa[fila][columna] === 1;
+    return this.meuTauler.mapa[fila][columna] === 1;
+  }
 }

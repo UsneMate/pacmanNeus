@@ -121,10 +121,14 @@ function keyPressed() {
   let fila = Math.floor(novaY / 30); // Convertir la posició Y a coordenades de matriu
   let columna = Math.floor(novaX / 30); // Convertir la posició X a coordenades de matriu
 
-  if (joc.meuTauler.mapa[fila] && joc.meuTauler.mapa[fila][columna] !== 1) {
-    // Si no és una roca, mou el Comecocos
+  if (!joc.esRoca(fila, columna)) {
+    //si no és una roca, el comecocos es pot moure
     joc.meuComecocos.updatePosition(novaX, novaY);
   }
+  // if (joc.meuTauler.mapa[fila] && joc.meuTauler.mapa[fila][columna] !== 1) {
+  //   // Si no és una roca, mou el Comecocos
+  //   joc.meuComecocos.updatePosition(novaX, novaY);
+  // }
 
   // Assegurar que el Comecocos no surti del canvas.
   if (joc.meuComecocos.y < 30 + joc.meuComecocos.radi / 2) {
