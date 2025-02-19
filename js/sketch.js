@@ -1,19 +1,21 @@
-import Comecocos from "./classes/Comecocos.js";
-import Tauler from "./classes/Tauler.js";
+//import Comecocos from "./classes/Comecocos.js";
+//import Tauler from "./classes/Tauler.js";
 import Food from "./classes/Food.js";
 import Cirera from "./classes/Cirera.js";
+import Joc from "./classes/Joc.js";
 
 // Variables globals
-let meuComecocos;
-let meuTauler;
+//let meuComecocos;
+//let meuTauler;
+let joc;
 let imgPared;
 
 let imgMenjar;
-let foodItems = [];
+//let foodItems = [];
 let puntuacio = 0;
 
 let imgCirera;
-let cireres = [];
+//let cireres = [];
 //com faig un bucle
 
 
@@ -36,18 +38,20 @@ function setup() {
   angleMode(DEGREES);
 
   // Crear instàncies de Comecocos i Tauler
-  meuComecocos = new Comecocos(30, 300, 30, "Yellow");
-  meuTauler = new Tauler();
+  //meuComecocos = new Comecocos(30, 300, 30, "Yellow");
+  //meuTauler = new Tauler();
+
+  joc = new Joc();
 
   // Repartir el menjar al tauler
-  for (let i = 0; i < meuTauler.mapa.length; i++) {
-    for (let j = 0; j < meuTauler.mapa[i].length; j++) {
-      if (meuTauler.mapa[i][j] === 2) {
-        foodItems.push(new Food(j * 30, i * 30, 10)); // 10 punts per cada menjar
+  for (let i = 0; i < joc.meuTauler.mapa.length; i++) {
+    for (let j = 0; j < joc.meuTauler.mapa[i].length; j++) {
+      if (joc.meuTauler.mapa[i][j] === 2) {
+        joc.foodItems.push(new Food(j * 30, i * 30, 10)); // 10 punts per cada menjar
       }
 
-      if (meuTauler.mapa[i][j] === 3) {
-        cireres.push(new Cirera(j * 30, i * 30, 50));
+      if (joc.meuTauler.mapa[i][j] === 3) {
+        joc.cireres.push(new Cirera(j * 30, i * 30, 50));
       }
     }
   }
@@ -57,26 +61,26 @@ function draw() {
   background(190);
 
   // Dibuixa el tauler
-  for (let i = 0; i < meuTauler.mapa.length; i++) {
-    for (let j = 0; j < meuTauler.mapa[i].length; j++) {
-      if (meuTauler.mapa[i][j] === 1) {
+  for (let i = 0; i < joc.meuTauler.mapa.length; i++) {
+    for (let j = 0; j < joc.meuTauler.mapa[i].length; j++) {
+      if (joc.meuTauler.mapa[i][j] === 1) {
         image(imgPared, j * 30, i * 30, 30, 30); // Dibuixa la imatge de la paret
       }
     }
   }
 
   // Dibuixa el Comecocos
-  meuComecocos.drawComecocos();
+  joc.meuComecocos.drawComecocos();
 
   // Dibuixa el menjar i comprova si el Comecocos el menja
-  foodItems.forEach((food) => {
+  joc.foodItems.forEach((food) => {
     food.drawFood(imgMenjar);
-    puntuacio += food.checkCollisionFood(meuComecocos.x, meuComecocos.y, meuComecocos.radi);
+    puntuacio += food.checkCollisionFood(joc.meuComecocos.x, joc.meuComecocos.y, joc.meuComecocos.radi);
   });
 
-  cireres.forEach((cirera) => {
+  joc.cireres.forEach((cirera) => {
     cirera.drawFoodCirera(imgCirera);
-    puntuacio += cirera.checkCollisionCirera(meuComecocos.x, meuComecocos.y,meuComecocos.radi);
+    puntuacio += cirera.checkCollisionCirera(joc.meuComecocos.x, joc.meuComecocos.y, joc.meuComecocos.radi);
   });
 
   // Mostrar puntuació
@@ -89,54 +93,54 @@ function draw() {
 // Funció per detectar tecles i moure el Comecocos
 function keyPressed() {
   // Definir les noves coordenades de destí
-  let novaX = meuComecocos.x;
-  let novaY = meuComecocos.y;
+  let novaX = joc.meuComecocos.x;
+  let novaY = joc.meuComecocos.y;
 
   // Moviments i angles segons la direcció
   if (keyCode === UP_ARROW) {
     novaY -= velocitat;
-    meuComecocos.updateAngle('UP');
+    joc.meuComecocos.updateAngle('UP');
   } else if (keyCode === DOWN_ARROW) {
     novaY += velocitat;
-    meuComecocos.updateAngle('DOWN');
+    joc.meuComecocos.updateAngle('DOWN');
   } else if (keyCode === LEFT_ARROW) {
     novaX -= velocitat;
-    meuComecocos.updateAngle('LEFT');
+    joc.meuComecocos.updateAngle('LEFT');
   } else if (keyCode === RIGHT_ARROW) {
     novaX += velocitat;
-    meuComecocos.updateAngle('RIGHT');
+    joc.meuComecocos.updateAngle('RIGHT');
   }
 
   // Comprovar si la nova posició és una roca
   let fila = Math.floor(novaY / 30); // Convertir la posició Y a coordenades de matriu
   let columna = Math.floor(novaX / 30); // Convertir la posició X a coordenades de matriu
 
-  if (meuTauler.mapa[fila] && meuTauler.mapa[fila][columna] !== 1) {
+  if (joc.meuTauler.mapa[fila] && joc.meuTauler.mapa[fila][columna] !== 1) {
     // Si no és una roca, mou el Comecocos
-    meuComecocos.updatePosition(novaX, novaY);
+    joc.meuComecocos.updatePosition(novaX, novaY);
   }
 
   // Assegurar que el Comecocos no surti del canvas.
-  if (meuComecocos.y < 30 + meuComecocos.radi / 2) {
-    meuComecocos.updatePosition(meuComecocos.x, 30 + meuComecocos.radi / 2);
+  if (joc.meuComecocos.y < 30 + joc.meuComecocos.radi / 2) {
+    joc.meuComecocos.updatePosition(joc.meuComecocos.x, 30 + joc.meuComecocos.radi / 2);
   }
-  if (meuComecocos.y > yCanvas - 30 - meuComecocos.radi / 2) {
-    meuComecocos.updatePosition(meuComecocos.x, yCanvas - 30 - meuComecocos.radi / 2);
+  if (joc.meuComecocos.y > yCanvas - 30 - joc.meuComecocos.radi / 2) {
+    joc.meuComecocos.updatePosition(joc.meuComecocos.x, yCanvas - 30 - joc.meuComecocos.radi / 2);
   }
 
-  if (meuComecocos.x < 30 + meuComecocos.radi / 2 && (meuComecocos.y <= 270 || meuComecocos.y >= 330)) {
-    meuComecocos.updatePosition(30 + meuComecocos.radi / 2, meuComecocos.y);
+  if (joc.meuComecocos.x < 30 + joc.meuComecocos.radi / 2 && (joc.meuComecocos.y <= 270 || joc.meuComecocos.y >= 330)) {
+    joc.meuComecocos.updatePosition(30 + this.meuComecocos.radi / 2, this.meuComecocos.y);
   }
-  if (meuComecocos.x > xCanvas - 30 - meuComecocos.radi / 2 && (meuComecocos.y <= 270 || meuComecocos.y >= 330)) {
-    meuComecocos.updatePosition(xCanvas - 30 - meuComecocos.radi / 2, meuComecocos.y);
+  if (joc.meuComecocos.x > xCanvas - 30 - joc.meuComecocos.radi / 2 && (joc.meuComecocos.y <= 270 || joc.meuComecocos.y >= 330)) {
+    joc.meuComecocos.updatePosition(xCanvas - 30 - joc.meuComecocos.radi / 2, joc.meuComecocos.y);
   }
 
   // Permetre el pas pel túnel lateral
-  if (meuComecocos.x > xCanvas) {
-    meuComecocos.updatePosition(0, meuComecocos.y);
+  if (joc.meuComecocos.x > xCanvas) {
+    joc.meuComecocos.updatePosition(0, joc.meuComecocos.y);
   }
-  if (meuComecocos.x < 0) {
-    meuComecocos.updatePosition(xCanvas, meuComecocos.y);
+  if (joc.meuComecocos.x < 0) {
+    joc.meuComecocos.updatePosition(xCanvas, joc.meuComecocos.y);
   }
 }
 
