@@ -79,4 +79,29 @@ export default class Joc {
     //return this.meuTauler.mapa[fila] && this.meuTauler.mapa[fila][columna] === 1;
     return this.meuTauler.mapa[fila][columna] === 1;
   }
+
+  comprovarLimits(xCanvas, yCanvas){
+    // Assegurar que el Comecocos no surti del canvas.
+    if (this.meuComecocos.y < 30 + this.meuComecocos.radi / 2) {
+      this.meuComecocos.updatePosition(this.meuComecocos.x, 30 + this.meuComecocos.radi / 2);
+    }
+    if (this.meuComecocos.y > yCanvas - 30 - this.meuComecocos.radi / 2) {
+      this.meuComecocos.updatePosition(this.meuComecocos.x, yCanvas - 30 - joc.meuComecocos.radi / 2);
+    }
+
+    if (this.meuComecocos.x < 30 + this.meuComecocos.radi / 2 && (this.meuComecocos.y <= 270 || this.meuComecocos.y >= 330)) {
+      this.meuComecocos.updatePosition(30 + this.meuComecocos.radi / 2, this.meuComecocos.y);
+    }
+    if (this.meuComecocos.x > xCanvas - 30 - this.meuComecocos.radi / 2 && (this.meuComecocos.y <= 270 || this.meuComecocos.y >= 330)) {
+      this.meuComecocos.updatePosition(xCanvas - 30 - this.meuComecocos.radi / 2, this.meuComecocos.y);
+    }
+
+    // Permetre el pas pel túnel lateral
+    if (this.meuComecocos.x > xCanvas) {
+      this.meuComecocos.updatePosition(0, this.meuComecocos.y);
+    }
+    if (this.meuComecocos.x < 0) {
+      this.meuComecocos.updatePosition(xCanvas, this.meuComecocos.y);
+    }
+  }
 }

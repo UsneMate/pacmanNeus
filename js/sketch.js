@@ -131,27 +131,28 @@ function keyPressed() {
   // }
 
   // Assegurar que el Comecocos no surti del canvas.
-  if (joc.meuComecocos.y < 30 + joc.meuComecocos.radi / 2) {
-    joc.meuComecocos.updatePosition(joc.meuComecocos.x, 30 + joc.meuComecocos.radi / 2);
-  }
-  if (joc.meuComecocos.y > yCanvas - 30 - joc.meuComecocos.radi / 2) {
-    joc.meuComecocos.updatePosition(joc.meuComecocos.x, yCanvas - 30 - joc.meuComecocos.radi / 2);
-  }
-
-  if (joc.meuComecocos.x < 30 + joc.meuComecocos.radi / 2 && (joc.meuComecocos.y <= 270 || joc.meuComecocos.y >= 330)) {
-    joc.meuComecocos.updatePosition(30 + this.meuComecocos.radi / 2, this.meuComecocos.y);
-  }
-  if (joc.meuComecocos.x > xCanvas - 30 - joc.meuComecocos.radi / 2 && (joc.meuComecocos.y <= 270 || joc.meuComecocos.y >= 330)) {
-    joc.meuComecocos.updatePosition(xCanvas - 30 - joc.meuComecocos.radi / 2, joc.meuComecocos.y);
-  }
-
-  // Permetre el pas pel túnel lateral
-  if (joc.meuComecocos.x > xCanvas) {
-    joc.meuComecocos.updatePosition(0, joc.meuComecocos.y);
-  }
-  if (joc.meuComecocos.x < 0) {
-    joc.meuComecocos.updatePosition(xCanvas, joc.meuComecocos.y);
-  }
+  joc.comprovarLimits(xCanvas, yCanvas);
+  // if (joc.meuComecocos.y < 30 + joc.meuComecocos.radi / 2) {
+  //   joc.meuComecocos.updatePosition(joc.meuComecocos.x, 30 + joc.meuComecocos.radi / 2);
+  // }
+  // if (joc.meuComecocos.y > yCanvas - 30 - joc.meuComecocos.radi / 2) {
+  //   joc.meuComecocos.updatePosition(joc.meuComecocos.x, yCanvas - 30 - joc.meuComecocos.radi / 2);
+  // }
+  //
+  // if (joc.meuComecocos.x < 30 + joc.meuComecocos.radi / 2 && (joc.meuComecocos.y <= 270 || joc.meuComecocos.y >= 330)) {
+  //   joc.meuComecocos.updatePosition(30 + this.meuComecocos.radi / 2, this.meuComecocos.y);
+  // }
+  // if (joc.meuComecocos.x > xCanvas - 30 - joc.meuComecocos.radi / 2 && (joc.meuComecocos.y <= 270 || joc.meuComecocos.y >= 330)) {
+  //   joc.meuComecocos.updatePosition(xCanvas - 30 - joc.meuComecocos.radi / 2, joc.meuComecocos.y);
+  // }
+  //
+  // // Permetre el pas pel túnel lateral
+  // if (joc.meuComecocos.x > xCanvas) {
+  //   joc.meuComecocos.updatePosition(0, joc.meuComecocos.y);
+  // }
+  // if (joc.meuComecocos.x < 0) {
+  //   joc.meuComecocos.updatePosition(xCanvas, joc.meuComecocos.y);
+  // }
 }
 
 
