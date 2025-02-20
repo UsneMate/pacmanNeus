@@ -124,6 +124,8 @@ function keyPressed() {
   if (!joc.esRoca(fila, columna)) {
     //si no és una roca, el comecocos es pot moure
     joc.meuComecocos.updatePosition(novaX, novaY);
+  } else {
+    joc.puntuacio -= 10;
   }
   // if (joc.meuTauler.mapa[fila] && joc.meuTauler.mapa[fila][columna] !== 1) {
   //   // Si no és una roca, mou el Comecocos
