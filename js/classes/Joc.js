@@ -183,21 +183,20 @@ export default class Joc {
   dibuixarMenjar() {
     this.foodItems.forEach(food => {
       food.drawFood(this.imgMenjar);
-      this.puntuacio += food.checkCollisionFood(
-        this.meuComecocos.x,
-        this.meuComecocos.y,
-        this.meuComecocos.radi
-      );
+      this.puntuacio += food.checkCollisionFood(this.meuComecocos.x, this.meuComecocos.y, this.meuComecocos.radi);
     });
 
     this.cireres.forEach(cirera => {
       cirera.drawFoodCirera(this.imgCirera);
-      this.puntuacio += cirera.checkCollisionCirera(
-        this.meuComecocos.x,
-        this.meuComecocos.y,
-        this.meuComecocos.radi
-      );
+      this.puntuacio += cirera.checkCollisionCirera(this.meuComecocos.x, this.meuComecocos.y, this.meuComecocos.radi);
     });
+    /**
+     * si no queda menjar, s'acaba la partida
+     */
+    if (this.foodItems.length === 0 && this.cireres.length === 0) {
+      this.finalitzarPartida();
+      console.log("Partida finalitzada, ja no hi ha menjar ni cireres.");
+    }
   }
 
   /**
