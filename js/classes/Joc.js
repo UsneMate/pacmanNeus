@@ -16,16 +16,22 @@ import Cirera from './Cirera.js';
 export default class Joc {
   //ara ens interessa també afegir vides
   constructor() {
-    this.vides = 3;
+    // this.vides = 3;
     this.puntuacio = 0;
     this.meuComecocos = new Comecocos(30, 300, 30, "Yellow");
     this.meuTauler = new Tauler();
     this.foodItems = [];
     this.cireres = [];
+    this.focs = [];
     this.imgPared = null;
     this.imgMenjar = null;
     this.imgCirera = null;
+    this.imgFoc = null;
   }
+
+  // iniciarPartida(){
+  //
+  // }
 
   repartirMenjar(){
     for (let i = 0; i < this.meuTauler.mapa.length; i++) {
@@ -45,6 +51,8 @@ export default class Joc {
     this.imgPared = loadImage("../img/roca.png");
     this.imgMenjar = loadImage("../img/food.png");
     this.imgCirera = loadImage("../img/cerezas.png");
+    this.imgFoc = loadImage("../img/llam0006.gif");
+
   }
 
   dibuixarTauler() {
@@ -53,6 +61,9 @@ export default class Joc {
       for (let j = 0; j < this.meuTauler.mapa[i].length; j++) {
         if (this.meuTauler.mapa[i][j] === 1) {
           image(this.imgPared, j * 30, i * 30, 30, 30); // Dibuixa la imatge de la paret
+        }
+        if (this.meuTauler.mapa[i][j] === 4){
+          image(this.imgFoc, j * 30, i * 30, 30, 30);
         }
       }
     }
@@ -80,13 +91,17 @@ export default class Joc {
     return this.meuTauler.mapa[fila][columna] === 1;
   }
 
+  esFoc(fila, columna){
+    return this.meuTauler.mapa[fila][columna] === 4;
+  }
+
   comprovarLimits(xCanvas, yCanvas){
     // Assegurar que el Comecocos no surti del canvas.
     if (this.meuComecocos.y < 30 + this.meuComecocos.radi / 2) {
       this.meuComecocos.updatePosition(this.meuComecocos.x, 30 + this.meuComecocos.radi / 2);
     }
     if (this.meuComecocos.y > yCanvas - 30 - this.meuComecocos.radi / 2) {
-      this.meuComecocos.updatePosition(this.meuComecocos.x, yCanvas - 30 - joc.meuComecocos.radi / 2);
+      this.meuComecocos.updatePosition(this.meuComecocos.x, yCanvas - 30 - this.meuComecocos.radi / 2);
     }
 
     if (this.meuComecocos.x < 30 + this.meuComecocos.radi / 2 && (this.meuComecocos.y <= 270 || this.meuComecocos.y >= 330)) {
