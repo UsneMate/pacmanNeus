@@ -9,30 +9,40 @@ let yCanvas = 700;
 // Variable amb la velocitat de moviment
 let velocitat = 15;
 
+/**
+ * Funció per carregar els recursos abans de l'inici del joc.
+ * Aquesta funció es crida abans de la configuració inicial.
+ */
 function preload() {
   joc = new Joc();
   joc.preload();
 }
 
+/**
+ * Funció per configurar la finestra del joc.
+ * Aquesta funció es crida un cop abans de començar el dibuix del joc.
+ */
 function setup() {
   createCanvas(xCanvas, yCanvas);
   angleMode(DEGREES);
 
   // Crear instàncies de Comecocos i Tauler
-  //meuComecocos = new Comecocos(30, 300, 30, "Yellow");
-  //meuTauler = new Tauler();
+  // meuComecocos = new Comecocos(30, 300, 30, "Yellow");
+  // meuTauler = new Tauler();
 
-  //joc = new Joc();
-  // joc.repartirMenjar();
+  // Inicialitzar el joc
   joc.iniciarPartida();
 }
 
+/**
+ * Funció principal per dibuixar a la pantalla i actualitzar el joc.
+ * Aquesta funció es crida en cada fotograma del joc.
+ */
 function draw() {
   background(190);
   joc.dibuixarTauler();
 
   // Dibuixa el Comecocos
-  //joc.meuComecocos.drawComecocos();
   joc.dibuixarComecocos();
 
   // Dibuixa el menjar i comprova si el Comecocos el menja
@@ -47,25 +57,29 @@ function draw() {
   let temps = joc.tempsTranscorregut();
   text("Temps: " + Math.floor(temps/1000) + "s", xCanvas / 2 -30, yCanvas - 20);
 
+  // Si el temps arriba a 30 segons, finalitza la partida
   if(temps >= 30000){
     joc.finalitzarPartida();
     textSize(80);
     fill(0);
     text("Temps finalitzat!", xCanvas / 2, yCanvas / 2);
-    noLoop();
+    noLoop(); // Atura el dibuix després de finalitzar la partida
   }
 }
 
-// Funció per detectar tecles i moure el Comecocos
+/**
+ * Funció que detecta les tecles pressionades i mou el Comecocos.
+ * Aquesta funció es crida cada cop que es prem una tecla.
+ */
 function keyPressed() {
-
-  if (!joc.jocActiu) return; // No es mou si la partida ha acabat
+  // Si el joc no està actiu, no es fa res
+  if (!joc.jocActiu) return;
 
   // Definir les noves coordenades de destí
   let novaX = joc.meuComecocos.x;
   let novaY = joc.meuComecocos.y;
 
-  // Moviments i angles segons la direcció
+  // Moviments segons la direcció
   if (keyCode === UP_ARROW) {
     novaY -= velocitat;
     joc.meuComecocos.updateAngle('UP');
@@ -80,7 +94,7 @@ function keyPressed() {
     joc.meuComecocos.updateAngle('RIGHT');
   }
 
-  // Comprovar si la nova posició és una roca
+  // Comprovar si la nova posició és una roca o un foc
   let fila = Math.floor(novaY / 30); // Convertir la posició Y a coordenades de matriu
   let columna = Math.floor(novaX / 30); // Convertir la posició X a coordenades de matriu
 
@@ -97,9 +111,9 @@ function keyPressed() {
       joc.puntuacio -= 50;
     }
   }
+  // Comprovar els límits del joc (evitar que el Comecocos surti de la pantalla)
   joc.comprovarLimits(xCanvas, yCanvas);
 }
-
 
 // Declarem les funcions globalment per a p5.js
 globalThis.setup = setup;

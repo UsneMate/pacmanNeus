@@ -1,55 +1,99 @@
-//importem totes les classe que necessito per
-//poder fer funcionar el joc
-
-
+// Importem totes les classes necessàries per al funcionament del joc
 import Tauler from './Tauler.js';
 import Comecocos from './Comecocos.js';
 import Food from './Food.js';
 import Cirera from './Cirera.js';
 
-
-
-// Fem el constructor de la classe Joc
-// i li passem les variables que necessita
-// i creeem les instancies de les classes
-
+/**
+ * Classe que gestiona el joc, incloent el tauler, els elements de menjar i el Comecocos.
+ */
 export default class Joc {
-
+  /**
+   * Crea una instància del joc i inicialitza els seus atributs.
+   */
   constructor() {
-
+    /**
+     * Puntuació actual del jugador.
+     * @type {number}
+     */
     this.puntuacio = 0;
+
+    /**
+     * Instància del Comecocos.
+     * @type {Comecocos}
+     */
     this.meuComecocos = new Comecocos(30, 300, 30, "Yellow");
+
+    /**
+     * Instància del Tauler.
+     * @type {Tauler}
+     */
     this.meuTauler = new Tauler();
+
+    /**
+     * Llista d'objectes de menjar (Food).
+     * @type {Food[]}
+     */
     this.foodItems = [];
+
+    /**
+     * Llista d'objectes de cireres.
+     * @type {Cirera[]}
+     */
     this.cireres = [];
+
+    /**
+     * Llista d'objectes de foc (futur desenvolupament).
+     * @type {Array}
+     */
     this.focs = [];
+
+    // Imatges del joc
     this.imgPared = null;
     this.imgMenjar = null;
     this.imgCirera = null;
     this.imgFoc = null;
 
+    /**
+     * Temps d'inici de la partida.
+     * @type {number}
+     */
     this.tempsInici = 0;
+
+    /**
+     * Indica si el joc està actiu.
+     * @type {boolean}
+     */
     this.jocActiu = true;
   }
 
-  iniciarPartida(){
+  /**
+   * Inicia una nova partida reiniciant variables i repartint el menjar.
+   */
+  iniciarPartida() {
     this.tempsInicial = millis();
     this.jocActiu = true;
     this.puntuacio = 0;
     this.repartirMenjar();
   }
 
-  finalitzarPartida(){
+  /**
+   * Finalitza la partida i mostra un missatge a la consola.
+   */
+  finalitzarPartida() {
     try {
       this.jocActiu = false;
       console.log("Partida finalitzada.");
-
     } catch (error) {
       console.error("Error en finalitzar la partida: ", error.message);
     }
   }
 
-  tempsTranscorregut(){
+  /**
+   * Calcula el temps transcorregut des de l'inici de la partida.
+   * @returns {number} - Temps en mil·lisegons des de l'inici de la partida.
+   */
+  tempsTranscorregut() {
     try {
       if (this.jocActiu) {
         return millis() - this.tempsInici;
@@ -60,7 +104,10 @@ export default class Joc {
     }
   }
 
-  repartirMenjar(){
+  /**
+   * Reparteix menjar i cireres al tauler en funció del mapa.
+   */
+  repartirMenjar() {
     for (let i = 0; i < this.meuTauler.mapa.length; i++) {
       for (let j = 0; j < this.meuTauler.mapa[i].length; j++) {
         if (this.meuTauler.mapa[i][j] === 2) {
@@ -74,23 +121,29 @@ export default class Joc {
     }
   }
 
-  preload(){
+  /**
+   * Carrega les imatges necessàries per al joc.
+   */
+  preload() {
     try {
       this.imgPared = loadImage("../img/roca.png", img => {
         console.log("Imatge de roca carregada correctament.");
       }, error => {
         throw new Error("Error en carregar la imatge de la roca.");
       });
+
       this.imgMenjar = loadImage("../img/food.png", img => {
         console.log("Imatge de menjar carregada correctament.");
       }, error => {
         throw new Error("Error en carregar la imatge del menjar.");
       });
+
       this.imgCirera = loadImage("../img/cerezas.png", img => {
         console.log("Imatge de cirera carregada correctament.");
       }, error => {
         throw new Error("Error en carregar la imatge de la cirera.");
       });
+
       this.imgFoc = loadImage("../img/llam0006.gif", img => {
         console.log("Imatge de foc carregada correctament.");
       }, error => {
@@ -101,49 +154,78 @@ export default class Joc {
     }
   }
 
-
+  /**
+   * Dibuixa el tauler amb les parets i els elements de foc.
+   */
   dibuixarTauler() {
-
     for (let i = 0; i < this.meuTauler.mapa.length; i++) {
       for (let j = 0; j < this.meuTauler.mapa[i].length; j++) {
         if (this.meuTauler.mapa[i][j] === 1) {
-          image(this.imgPared, j * 30, i * 30, 30, 30); // Dibuixa la imatge de la paret
+          image(this.imgPared, j * 30, i * 30, 30, 30);
         }
-        if (this.meuTauler.mapa[i][j] === 4){
+        if (this.meuTauler.mapa[i][j] === 4) {
           image(this.imgFoc, j * 30, i * 30, 30, 30);
         }
       }
     }
   }
 
-  dibuixarComecocos(){
+  /**
+   * Dibuixa el Comecocos.
+   */
+  dibuixarComecocos() {
     this.meuComecocos.drawComecocos();
   }
 
-  dibuixarMenjar(){
-    this.foodItems.forEach((food) => {
+  /**
+   * Dibuixa el menjar i les cireres i comprova col·lisions.
+   */
+  dibuixarMenjar() {
+    this.foodItems.forEach(food => {
       food.drawFood(this.imgMenjar);
-      this.puntuacio += food.checkCollisionFood(this.meuComecocos.x, this.meuComecocos.y, this.meuComecocos.radi);
+      this.puntuacio += food.checkCollisionFood(
+        this.meuComecocos.x,
+        this.meuComecocos.y,
+        this.meuComecocos.radi
+      );
     });
 
-    this.cireres.forEach((cirera) => {
+    this.cireres.forEach(cirera => {
       cirera.drawFoodCirera(this.imgCirera);
-      this.puntuacio += cirera.checkCollisionCirera(this.meuComecocos.x, this.meuComecocos.y, this.meuComecocos.radi);
+      this.puntuacio += cirera.checkCollisionCirera(
+        this.meuComecocos.x,
+        this.meuComecocos.y,
+        this.meuComecocos.radi
+      );
     });
   }
 
-  //funció que comprova si la casella és una roca
-  esRoca(fila, columna){
-    //return this.meuTauler.mapa[fila] && this.meuTauler.mapa[fila][columna] === 1;
+  /**
+   * Comprova si una casella és una roca.
+   * @param {number} fila - Fila de la casella.
+   * @param {number} columna - Columna de la casella.
+   * @returns {boolean} - True si és una roca, false si no ho és.
+   */
+  esRoca(fila, columna) {
     return this.meuTauler.mapa[fila][columna] === 1;
   }
 
-  esFoc(fila, columna){
+  /**
+   * Comprova si una casella és foc.
+   * @param {number} fila - Fila de la casella.
+   * @param {number} columna - Columna de la casella.
+   * @returns {boolean} - True si és foc, false si no ho és.
+   */
+  esFoc(fila, columna) {
     return this.meuTauler.mapa[fila][columna] === 4;
   }
 
-  comprovarLimits(xCanvas, yCanvas){
-    // Assegurar que el Comecocos no surti del canvas.
+  /**
+   * Assegura que el Comecocos no surti dels límits del tauler.
+   * @param {number} xCanvas - Amplada del canvas.
+   * @param {number} yCanvas - Alçada del canvas.
+   */
+  comprovarLimits(xCanvas, yCanvas) {
     if (this.meuComecocos.y < 30 + this.meuComecocos.radi / 2) {
       this.meuComecocos.updatePosition(this.meuComecocos.x, 30 + this.meuComecocos.radi / 2);
     }
@@ -151,14 +233,6 @@ export default class Joc {
       this.meuComecocos.updatePosition(this.meuComecocos.x, yCanvas - 30 - this.meuComecocos.radi / 2);
     }
 
-    if (this.meuComecocos.x < 30 + this.meuComecocos.radi / 2 && (this.meuComecocos.y <= 270 || this.meuComecocos.y >= 330)) {
-      this.meuComecocos.updatePosition(30 + this.meuComecocos.radi / 2, this.meuComecocos.y);
-    }
-    if (this.meuComecocos.x > xCanvas - 30 - this.meuComecocos.radi / 2 && (this.meuComecocos.y <= 270 || this.meuComecocos.y >= 330)) {
-      this.meuComecocos.updatePosition(xCanvas - 30 - this.meuComecocos.radi / 2, this.meuComecocos.y);
-    }
-
-    // Permetre el pas pel túnel lateral
     if (this.meuComecocos.x > xCanvas) {
       this.meuComecocos.updatePosition(0, this.meuComecocos.y);
     }

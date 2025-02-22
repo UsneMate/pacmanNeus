@@ -1,7 +1,18 @@
 // Tauler.js
+/**
+ * Constructor de la classe Tauler.
+ * Inicialitza el mapa amb valors que representen les parets, el menjar i altres elements del joc.
+ */
 export default class Tauler {
   constructor() {
-    // Array bidimensional per representar el tauler de 20x20
+    /**
+     * Mapa que representa el tauler de 20x20.
+     * Els valors a la matriu representen diferents tipus d'objectes al tauler:
+     * 1 - Paret,
+     * 2 - Menjar,
+     * 3 - Cirera,
+     * 4 - Foc.
+     */
     this.mapa = [
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       [1, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 1],
