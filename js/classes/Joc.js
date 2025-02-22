@@ -27,11 +27,28 @@ export default class Joc {
     this.imgMenjar = null;
     this.imgCirera = null;
     this.imgFoc = null;
+
+    this.tempsInici = 0;
+    this.jocActiu = true;
   }
 
-  // iniciarPartida(){
-  //
-  // }
+  iniciarPartida(){
+    this.tempsInicial = millis();
+    this.jocActiu = true;
+    this.puntuacio = 0;
+    this.repartirMenjar();
+  }
+
+  finalitzarPartida(){
+    this.jocActiu = false;
+  }
+
+  tempsTranscorregut(){
+    if(this.jocActiu){
+      return millis() - this.tempsInicial;
+    }
+    return 0;
+  }
 
   repartirMenjar(){
     for (let i = 0; i < this.meuTauler.mapa.length; i++) {

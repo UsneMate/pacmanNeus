@@ -23,7 +23,8 @@ function setup() {
   //meuTauler = new Tauler();
 
   //joc = new Joc();
-  joc.repartirMenjar();
+  // joc.repartirMenjar();
+  joc.iniciarPartida();
 }
 
 function draw() {
@@ -41,11 +42,24 @@ function draw() {
   fill(0);
   textSize(20);
   textAlign(CENTER);
-  text("Puntuació: " + joc.puntuacio, xCanvas / 2 -(30), yCanvas -50);
+  text("Puntuació: " + joc.puntuacio, xCanvas / 2 -30, yCanvas -50);
+
+  let temps = joc.tempsTranscorregut();
+  text("Temps: " + Math.floor(temps/1000) + "s", xCanvas / 2 -30, yCanvas - 20);
+
+  if(temps >= 30000){
+    joc.finalitzarPartida();
+    textSize(50);
+    fill(0);
+    text("Temps finalitzat!", xCanvas / 2, yCanvas / 2);
+  }
 }
 
 // Funció per detectar tecles i moure el Comecocos
 function keyPressed() {
+
+  if (!joc.jocActiu) return; // No es mou si la partida ha acabat
+
   // Definir les noves coordenades de destí
   let novaX = joc.meuComecocos.x;
   let novaY = joc.meuComecocos.y;
