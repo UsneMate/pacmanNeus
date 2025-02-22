@@ -65,12 +65,32 @@ export default class Joc {
   }
 
   preload(){
-    this.imgPared = loadImage("../img/roca.png");
-    this.imgMenjar = loadImage("../img/food.png");
-    this.imgCirera = loadImage("../img/cerezas.png");
-    this.imgFoc = loadImage("../img/llam0006.gif");
-
+    try {
+      this.imgPared = loadImage("../img/roca.png", img => {
+        console.log("Imatge de roca carregada correctament.");
+      }, error => {
+        throw new Error("Error en carregar la imatge de la roca.");
+      });
+      this.imgMenjar = loadImage("../img/food.png", img => {
+        console.log("Imatge de menjar carregada correctament.");
+      }, error => {
+        throw new Error("Error en carregar la imatge del menjar.");
+      });
+      this.imgCirera = loadImage("../img/cerezas.png", img => {
+        console.log("Imatge de cirera carregada correctament.");
+      }, error => {
+        throw new Error("Error en carregar la imatge de la cirera.");
+      });
+      this.imgFoc = loadImage("../img/llam0006.gif", img => {
+        console.log("Imatge de foc carregada correctament.");
+      }, error => {
+        throw new Error("Error en carregar la imatge del foc.");
+      });
+    } catch (error) {
+      console.error(error.message);
+    }
   }
+
 
   dibuixarTauler() {
     // Dibuixa el tauler
