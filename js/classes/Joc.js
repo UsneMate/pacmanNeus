@@ -3,6 +3,7 @@ import Tauler from './Tauler.js';
 import Comecocos from './Comecocos.js';
 import Food from './Food.js';
 import Cirera from './Cirera.js';
+import PowerUp from './PowerUp.js';
 
 /**
  * Classe que gestiona el joc, incloent el tauler, els elements de menjar i el Comecocos.
@@ -42,17 +43,15 @@ export default class Joc {
      */
     this.cireres = [];
 
-    /**
-     * Llista d'objectes de foc (futur desenvolupament).
-     * @type {Array}
-     */
-    this.focs = [];
+    this.powerUps = [];
+
 
     // Imatges del joc
     this.imgPared = null;
     this.imgMenjar = null;
     this.imgCirera = null;
     this.imgFoc = null;
+    this.imgPowerUp = null;
 
     /**
      * Temps d'inici de la partida.
@@ -65,6 +64,8 @@ export default class Joc {
      * @type {boolean}
      */
     this.jocActiu = true;
+    this.powerUpActiu = false;
+    this.tempsPowerUp = 0;
   }
 
   /**
@@ -96,13 +97,20 @@ export default class Joc {
   tempsTranscorregut() {
     try {
       if (this.jocActiu) {
+        // Si el PowerUp està actiu, guardem el temps actual com a temps transcorregut.
+        if (this.powerUpActiu) {
+          // Si el PowerUp està activat, es comptabilitza el temps que ha passat
+          return millis() - this.tempsPowerUp;
+        }
+        // Si el PowerUp no està activat, es calcula el temps des de l'inici normalment
         return millis() - this.tempsInici;
       }
-      return 0;
+      return 0; // Si el joc no està actiu, retornem 0
     } catch (error) {
       console.error("Error en calcular el temps transcorregut: ", error.message);
     }
   }
+
 
   /**
    * Reparteix menjar i cireres al tauler en funció del mapa.
@@ -116,6 +124,10 @@ export default class Joc {
 
         if (this.meuTauler.mapa[i][j] === 3) {
           this.cireres.push(new Cirera(j * 30, i * 30, 50));
+        }
+
+        if (this.meuTauler.mapa[i][j] === 5) {
+          this.powerUps.push(new PowerUp(j * 30, i * 30, 2));
         }
       }
     }
@@ -145,6 +157,12 @@ export default class Joc {
       });
 
       this.imgFoc = loadImage("../img/llam0006.gif", img => {
+        console.log("Imatge de foc carregada correctament.");
+      }, error => {
+        throw new Error("Error en carregar la imatge del foc.");
+      });
+
+      this.imgPowerUp = loadImage("../img/x2.png", img => {
         console.log("Imatge de foc carregada correctament.");
       }, error => {
         throw new Error("Error en carregar la imatge del foc.");
@@ -183,13 +201,37 @@ export default class Joc {
   dibuixarMenjar() {
     this.foodItems.forEach(food => {
       food.drawFood(this.imgMenjar);
-      this.puntuacio += food.checkCollisionFood(this.meuComecocos.x, this.meuComecocos.y, this.meuComecocos.radi);
+      let puntsObtinguts = food.checkCollisionFood(this.meuComecocos.x, this.meuComecocos.y, this.meuComecocos.radi);
+      if (this.powerUpActiu) {
+        puntsObtinguts *= 2; // Multiplica els punts per 2 si el PowerUp està actiu
+      }
+      this.puntuacio += puntsObtinguts;
     });
 
     this.cireres.forEach(cirera => {
       cirera.drawFoodCirera(this.imgCirera);
-      this.puntuacio += cirera.checkCollisionCirera(this.meuComecocos.x, this.meuComecocos.y, this.meuComecocos.radi);
+      let puntsObtinguts = cirera.checkCollisionCirera(this.meuComecocos.x, this.meuComecocos.y, this.meuComecocos.radi);
+      if (this.powerUpActiu) {
+        puntsObtinguts *= 2; // Multiplica els punts per 2 si el PowerUp està actiu
+      }
+      this.puntuacio += puntsObtinguts;
     });
+
+    this.powerUps.forEach(powerUp => {
+      powerUp.drawPowerUp(this.imgPowerUp); // Dibuixar el powerUp
+      let puntsPowerUp = powerUp.checkCollisionPowerUp(this.meuComecocos.x, this.meuComecocos.y, this.meuComecocos.radi);
+      if (puntsPowerUp > 0) {
+        this.powerUpActiu = true; // Activa el PowerUp
+        this.tempsPowerUp = millis(); // Marca el temps d'activació del PowerUp
+      }
+    });
+
+    /**
+     * Verifiquem si ha passat més de 10 segons des que es va activar el PowerUp
+     */
+    if (this.powerUpActiu && this.tempsTranscorregut() - this.tempsPowerUp > 10000) { // 10 segons en mil·lisegons
+      this.powerUpActiu = false; // Desactiva el PowerUp
+    }
     /**
      * si no queda menjar, s'acaba la partida
      */
@@ -198,6 +240,7 @@ export default class Joc {
       console.log("Partida finalitzada, ja no hi ha menjar ni cireres.");
     }
   }
+
 
   /**
    * Comprova si una casella és una roca.
