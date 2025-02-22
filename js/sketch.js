@@ -52,6 +52,7 @@ function draw() {
     textSize(50);
     fill(0);
     text("Temps finalitzat!", xCanvas / 2, yCanvas / 2);
+    noLoop();
   }
 }
 
