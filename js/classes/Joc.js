@@ -14,9 +14,9 @@ import Cirera from './Cirera.js';
 // i creeem les instancies de les classes
 
 export default class Joc {
-  //ara ens interessa també afegir vides
+
   constructor() {
-    // this.vides = 3;
+
     this.puntuacio = 0;
     this.meuComecocos = new Comecocos(30, 300, 30, "Yellow");
     this.meuTauler = new Tauler();
@@ -40,14 +40,24 @@ export default class Joc {
   }
 
   finalitzarPartida(){
-    this.jocActiu = false;
+    try {
+      this.jocActiu = false;
+      console.log("Partida finalitzada.");
+
+    } catch (error) {
+      console.error("Error en finalitzar la partida: ", error.message);
+    }
   }
 
   tempsTranscorregut(){
-    if(this.jocActiu){
-      return millis() - this.tempsInicial;
+    try {
+      if (this.jocActiu) {
+        return millis() - this.tempsInici;
+      }
+      return 0;
+    } catch (error) {
+      console.error("Error en calcular el temps transcorregut: ", error.message);
     }
-    return 0;
   }
 
   repartirMenjar(){
@@ -93,7 +103,7 @@ export default class Joc {
 
 
   dibuixarTauler() {
-    // Dibuixa el tauler
+
     for (let i = 0; i < this.meuTauler.mapa.length; i++) {
       for (let j = 0; j < this.meuTauler.mapa[i].length; j++) {
         if (this.meuTauler.mapa[i][j] === 1) {
