@@ -58,7 +58,7 @@ function draw() {
   text("Temps: " + Math.floor(temps/1000) + "s", xCanvas / 2 -30, yCanvas - 20);
 
   // Si el temps arriba a 30 segons, finalitza la partida
-  if(temps >= 30000){
+  if(temps >= 60000){
     joc.finalitzarPartida();
     textSize(80);
     fill(0);

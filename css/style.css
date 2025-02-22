@@ -17,13 +17,7 @@ html {
   line-height: 1.4;
 }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
-
+/* Remove text-shadow in selection highlight */
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -34,10 +28,7 @@ html {
   text-shadow: none;
 }
 
-/*
- * A better looking default horizontal rule
- */
-
+/* A better looking default horizontal rule */
 hr {
   display: block;
   height: 1px;
@@ -47,35 +38,19 @@ hr {
   padding: 0;
 }
 
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
+/* Remove the gap between audio, canvas, iframes, images, videos and the bottom of their containers */
+audio, canvas, iframe, img, svg, video {
   vertical-align: middle;
 }
 
-/*
- * Remove default fieldset styles.
- */
-
+/* Remove default fieldset styles */
 fieldset {
   border: 0;
   margin: 0;
   padding: 0;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
-
+/* Allow only vertical resizing of textareas */
 textarea {
   resize: vertical;
 }
@@ -88,24 +63,13 @@ textarea {
    Helper classes
    ========================================================================== */
 
-/*
- * Hide visually and from screen readers
- */
-
+/* Hide visually and from screen readers */
 .hidden,
 [hidden] {
   display: none !important;
 }
 
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
+/* Visually hidden but available for screen readers */
 .visually-hidden {
   border: 0;
   clip: rect(0, 0, 0, 0);
@@ -116,132 +80,149 @@ textarea {
   position: absolute;
   white-space: nowrap;
   width: 1px;
-  /* 1 */
-}
-
-/*
- * Extends the .visually-hidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.visually-hidden.focusable:active,
-.visually-hidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * The use of `table` rather than `block` is only necessary if using
- * `::before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: "";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
 }
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
    ========================================================================== */
-
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }
 
 @media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 
 /* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
+   Print styles
    ========================================================================== */
 
 @media print {
-  *,
-  *::before,
-  *::after {
+  * {
     background: #fff !important;
     color: #000 !important;
-    /* Black prints faster */
     box-shadow: none !important;
     text-shadow: none !important;
   }
 
-  a,
-  a:visited {
+  a {
     text-decoration: underline;
   }
 
   a[href]::after {
     content: " (" attr(href) ")";
   }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
 }
 
+/* ==========================================================================
+   Estils per al menú del joc
+   ========================================================================== */
+
+/* General */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenidor principal */
+.menu-container {
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Botons del menú */
+.menu-options button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu-options button:hover {
+  background-color: #45a049;
+}
+
+/* Pantalles ocultes */
+.hidden {
+  display: none;
+}
+
+/* Contingut de les pantalles */
+#helpScreen, #infoScreen, #creditsScreen {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+/* Botons de tancar */
+.close-btn {
+  background-color: #f44336;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Ocultem el joc per defecte */
+.hidden {
+  display: none;
+}
+
+/* Estils del contenidor del joc */
+#gameContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#backToMenu {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#backToMenu:hover {
+  background-color: #d32f2f;
+}
