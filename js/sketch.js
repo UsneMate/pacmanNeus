@@ -49,8 +49,8 @@ function draw() {
 
   if(temps >= 30000){
     joc.finalitzarPartida();
-    textSize(50);
-    fill(0);
+    textSize(80);
+    fill("red");
     text("Temps finalitzat!", xCanvas / 2, yCanvas / 2);
     noLoop();
   }
