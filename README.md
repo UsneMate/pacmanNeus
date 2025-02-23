@@ -7,8 +7,8 @@ L'objectiu del joc és menjar tots els punts del laberint sense xocar amb els en
 ## Mecànica de Joc  
 - El jugador es mou pel laberint utilitzant les tecles de direcció.  
 - Els enemics estan estàtics i no es mouen pel laberint.  
-- Si el jugador toca un enemic, perd una vida.  
-- Quan totes les vides s'esgoten, el joc s'acaba.  
+- Si el jugador toca un enemic, perd punts.  
+- Quan es menja tot el menjar o s'acaba el temps, el joc s'acaba.  
 
 ## Elements del Joc  
 ### 1. Personatge Principal  
@@ -18,10 +18,10 @@ Controlat pel jugador, es mou pel laberint menjant els punts.
 Conté passadissos pels quals el personatge es pot moure.  
 
 ### 3. Punts  
-Són els elements que el jugador ha de recollir per guanyar la partida.  
+Són els elements que el jugador ha de recollir.  
 
 ### 4. Enemics  
-Estan distribuïts pel laberint de manera estàtica. Si el jugador xoca amb un d'ells, perd una vida.  
+Estan distribuïts pel laberint de manera estàtica. Si el jugador xoca amb un d'ells, perd punts.  
 
 ## Controls  
 - **Fletxa amunt:** Moure cap amunt  
@@ -30,4 +30,4 @@ Estan distribuïts pel laberint de manera estàtica. Si el jugador xoca amb un d
 - **Fletxa dreta:** Moure a la dreta  
 
 ## Fi del Joc  
-El joc acaba quan el jugador perd totes les seves vides o quan aconsegueix menjar tots els punts del laberint en tots els nivells disponibles.  
+El joc acaba quan s'avaba el temps o quan aconsegueix menjar tots els punts del laberint.  
