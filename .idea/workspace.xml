@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0130cdc-3245-458c-a772-ab1a13a3b99b" name="Changes" comment="www">
-      <change afterPath="$PROJECT_DIR$/img/llam0007.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/llam0010.gif" afterDir="false" />
-    </list>
+    <list default="true" id="281162d1-9a22-4ecd-9f44-e792ff071e84" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="c4ee0d6e0d0f24462d84063512ed323e8205605a" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -42,7 +44,6 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/m_usn/WebstormProjects/Calculadora",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
