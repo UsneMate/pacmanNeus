@@ -1,0 +1,228 @@
+/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/* Remove text-shadow in selection highlight */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/* A better looking default horizontal rule */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* Remove the gap between audio, canvas, iframes, images, videos and the bottom of their containers */
+audio, canvas, iframe, img, svg, video {
+  vertical-align: middle;
+}
+
+/* Remove default fieldset styles */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Allow only vertical resizing of textareas */
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/* Hide visually and from screen readers */
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/* Visually hidden but available for screen readers */
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   ========================================================================== */
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+  * {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+}
+
+/* ==========================================================================
+   Estils per al menú del joc
+   ========================================================================== */
+
+/* General */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenidor principal */
+.menu-container {
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Botons del menú */
+.menu-options button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu-options button:hover {
+  background-color: #45a049;
+}
+
+/* Pantalles ocultes */
+.hidden {
+  display: none;
+}
+
+/* Contingut de les pantalles */
+#helpScreen, #infoScreen, #creditsScreen {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+/* Botons de tancar */
+.close-btn {
+  background-color: #f44336;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Ocultem el joc per defecte */
+.hidden {
+  display: none;
+}
+
+/* Estils del contenidor del joc */
+#gameContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#backToMenu {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#backToMenu:hover {
+  background-color: #d32f2f;
+}
