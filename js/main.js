@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function startGame() {
   document.getElementById("menuContainer").classList.add("hidden"); // Amagar menú
   document.getElementById("gameContainer").classList.remove("hidden"); // Mostrar joc
-  startP5Game(); // Iniciar el joc amb p5.js
+  //startP5Game(); // Iniciar el joc amb p5.js
 }
 
 // Funció per tornar al menú
@@ -52,3 +52,11 @@ function showCredits() {
 function closeScreen(screenId) {
   document.getElementById(screenId).classList.add("hidden");
 }
+
+document.querySelectorAll(".close-btn").forEach(button => {
+  button.addEventListener("click", function(event) {
+    event.stopPropagation(); // Evita que altres esdeveniments es propaguin
+    closeScreen(this.dataset.screen);
+  });
+});
+
