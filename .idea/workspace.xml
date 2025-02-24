@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c0130cdc-3245-458c-a772-ab1a13a3b99b" name="Changes" comment="www">
+      <change afterPath="$PROJECT_DIR$/img/llam0007.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/llam0010.gif" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;UsneMate&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/UsneMate/pacmanNeus.git&quot;,
+    &quot;accountId&quot;: &quot;64c807c9-c7f2-47d2-a0dc-2ba2513e5b78&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2t8H3phImhfmjlUWpo3vljXaR2w" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/m_usn/WebstormProjects/Calculadora",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "wsl://Ubuntu@/home/usne_mate/.local/share/pnpm/node",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\m_usn\WebstormProjects\pacmanNeus" />
+      <recent name="C:\Users\m_usn\WebstormProjects\pacmanNeus\js\libraries" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\m_usn\WebstormProjects\pacmanNeus\js\classes" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-WS-243.21565.180" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c0130cdc-3245-458c-a772-ab1a13a3b99b" name="Changes" comment="" />
+      <created>1739726585464</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739726585464</updated>
+      <workItem from="1739726587367" duration="5887000" />
+      <workItem from="1739732560987" duration="6895000" />
+      <workItem from="1739788061705" duration="14786000" />
+      <workItem from="1739814787228" duration="775000" />
+      <workItem from="1739815589770" duration="516000" />
+      <workItem from="1739816124745" duration="373000" />
+      <workItem from="1739880477324" duration="3037000" />
+      <workItem from="1739955690822" duration="10252000" />
+      <workItem from="1740051394604" duration="4737000" />
+      <workItem from="1740153483942" duration="7482000" />
+      <workItem from="1740227328426" duration="12669000" />
+      <workItem from="1740243959709" duration="3602000" />
+      <workItem from="1740247623375" duration="14422000" />
+    </task>
+    <task id="LOCAL-00001" summary="bbbbb">
+      <option name="closed" value="true" />
+      <created>1739727384990</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1739727384990</updated>
+    </task>
+    <task id="LOCAL-00002" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739731027865</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1739731027865</updated>
+    </task>
+    <task id="LOCAL-00003" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739736499065</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1739736499065</updated>
+    </task>
+    <task id="LOCAL-00004" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739740145608</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1739740145608</updated>
+    </task>
+    <task id="LOCAL-00005" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739740469496</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1739740469496</updated>
+    </task>
+    <task id="LOCAL-00006" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739790523780</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1739790523780</updated>
+    </task>
+    <task id="LOCAL-00007" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739792373631</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739792373631</updated>
+    </task>
+    <task id="LOCAL-00008" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739794953284</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1739794953284</updated>
+    </task>
+    <task id="LOCAL-00009" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739796766029</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1739796766029</updated>
+    </task>
+    <task id="LOCAL-00010" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739803199706</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1739803199706</updated>
+    </task>
+    <task id="LOCAL-00011" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739803574046</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1739803574046</updated>
+    </task>
+    <task id="LOCAL-00012" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739882269600</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1739882269600</updated>
+    </task>
+    <task id="LOCAL-00013" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739956703759</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1739956703759</updated>
+    </task>
+    <task id="LOCAL-00014" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739957148236</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1739957148236</updated>
+    </task>
+    <task id="LOCAL-00015" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739957529880</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1739957529880</updated>
+    </task>
+    <task id="LOCAL-00016" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739961725947</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1739961725947</updated>
+    </task>
+    <task id="LOCAL-00017" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739962577345</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1739962577345</updated>
+    </task>
+    <task id="LOCAL-00018" summary="canvis configuració">
+      <option name="closed" value="true" />
+      <created>1739963838599</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1739963838599</updated>
+    </task>
+    <task id="LOCAL-00019" summary="www">
+      <option name="closed" value="true" />
+      <created>1739964747291</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1739964747291</updated>
+    </task>
+    <task id="LOCAL-00020" summary="www">
+      <option name="closed" value="true" />
+      <created>1739967264510</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1739967264510</updated>
+    </task>
+    <task id="LOCAL-00021" summary="www">
+      <option name="closed" value="true" />
+      <created>1739968332928</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1739968332928</updated>
+    </task>
+    <task id="LOCAL-00022" summary="www">
+      <option name="closed" value="true" />
+      <created>1739968376189</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1739968376189</updated>
+    </task>
+    <task id="LOCAL-00023" summary="www">
+      <option name="closed" value="true" />
+      <created>1739969720380</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1739969720380</updated>
+    </task>
+    <task id="LOCAL-00024" summary="www">
+      <option name="closed" value="true" />
+      <created>1740052909653</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1740052909653</updated>
+    </task>
+    <task id="LOCAL-00025" summary="www">
+      <option name="closed" value="true" />
+      <created>1740053866330</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1740053866330</updated>
+    </task>
+    <task id="LOCAL-00026" summary="www">
+      <option name="closed" value="true" />
+      <created>1740236323338</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1740236323338</updated>
+    </task>
+    <task id="LOCAL-00027" summary="www">
+      <option name="closed" value="true" />
+      <created>1740245244577</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1740245244577</updated>
+    </task>
+    <task id="LOCAL-00028" summary="www">
+      <option name="closed" value="true" />
+      <created>1740245879855</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1740245879855</updated>
+    </task>
+    <task id="LOCAL-00029" summary="www">
+      <option name="closed" value="true" />
+      <created>1740246083658</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1740246083658</updated>
+    </task>
+    <task id="LOCAL-00030" summary="www">
+      <option name="closed" value="true" />
+      <created>1740246401205</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1740246401205</updated>
+    </task>
+    <task id="LOCAL-00031" summary="www">
+      <option name="closed" value="true" />
+      <created>1740246443431</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1740246443431</updated>
+    </task>
+    <task id="LOCAL-00032" summary="www">
+      <option name="closed" value="true" />
+      <created>1740247044592</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1740247044592</updated>
+    </task>
+    <task id="LOCAL-00033" summary="www">
+      <option name="closed" value="true" />
+      <created>1740248079854</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1740248079854</updated>
+    </task>
+    <task id="LOCAL-00034" summary="www">
+      <option name="closed" value="true" />
+      <created>1740250009005</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1740250009005</updated>
+    </task>
+    <task id="LOCAL-00035" summary="www">
+      <option name="closed" value="true" />
+      <created>1740258438039</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1740258438039</updated>
+    </task>
+    <task id="LOCAL-00036" summary="www">
+      <option name="closed" value="true" />
+      <created>1740262101229</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1740262101229</updated>
+    </task>
+    <task id="LOCAL-00037" summary="www">
+      <option name="closed" value="true" />
+      <created>1740262329025</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1740262329025</updated>
+    </task>
+    <task id="LOCAL-00038" summary="www">
+      <option name="closed" value="true" />
+      <created>1740262501557</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1740262501557</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="bbbbb" />
+    <MESSAGE value="canvis configuració" />
+    <MESSAGE value="www" />
+    <option name="LAST_COMMIT_MESSAGE" value="www" />
+  </component>
+</project>
